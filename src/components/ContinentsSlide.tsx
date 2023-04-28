@@ -1,5 +1,5 @@
 import React, { CSSProperties } from 'react'
-import { Flex, Text, useBreakpoint } from "@chakra-ui/react"
+import { Flex, Text, useMediaQuery } from "@chakra-ui/react"
 import { Swiper, SwiperSlide } from "swiper/react"
 import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper"
 import { Link } from 'react-router-dom'
@@ -17,10 +17,10 @@ type ContinentsSlideProps = {
 
 
 export default function ContinentsSlide({ continents }: ContinentsSlideProps) {
-  const breakpoint = useBreakpoint({ ssr: false })
+  const [isLargerThan800] = useMediaQuery('(min-width: 800px)')
 
   return (
-    <Flex p={breakpoint === 'lg' ? 12 : 6} pt={0}>
+    <Flex p={isLargerThan800 ? 12 : 6} pt={0}>
         <Swiper
           cssMode={true}
           style={{
@@ -36,7 +36,7 @@ export default function ContinentsSlide({ continents }: ContinentsSlideProps) {
           className="mySwiper"
         >
           { continents?.map((continent: Continent) => (
-            <SwiperSlide style={{ height: '250px' }}>
+            <SwiperSlide key={continent?.id} style={{ height: '250px' }}>
               <Link key={continent.id} to={`/continents/${continent.id}`} >
                 <Flex
                   direction='column'

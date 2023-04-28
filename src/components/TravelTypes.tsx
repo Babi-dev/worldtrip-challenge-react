@@ -1,5 +1,5 @@
 import React from 'react'
-import { useBreakpoint, Grid, GridItem, Flex, Text, Image } from '@chakra-ui/react'
+import { useMediaQuery, Grid, GridItem, Flex, Text, Image } from '@chakra-ui/react'
 
 import building from '@/assets/img/building.png'
 import cocktail from '@/assets/img/cocktail.png'
@@ -8,10 +8,10 @@ import museum from '@/assets/img/museum.png'
 import surf from '@/assets/img/surf.png'
 
 export default function TravelTypes() {
-  const breakpoint = useBreakpoint({ ssr: false })
+  const [isLargerThan800] = useMediaQuery('(min-width: 800px)')
 
   return (
-    <>{ breakpoint === 'lg'
+    <>{ isLargerThan800
         ? <Flex direction='row' justifyContent='center' w="100%" p={12}>
             <Flex direction='column' alignItems='center' marginRight='6rem'>
               <Image src={cocktail} w='60px' h='60px' />

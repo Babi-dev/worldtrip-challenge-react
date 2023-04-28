@@ -30,35 +30,40 @@ const Home = () => {
   }, [])
 
   return (
-    <Flex direction='column' justify='center'>
-      <Header />
+    <Flex
+      justifyContent='center'
+      alignItems='center'
+    >
+      <Flex direction='column' w='100%' maxW='1280px'>
+        <Header />
 
-      <Banner />
+        <Banner />
 
-      <TravelTypes />
+        <TravelTypes />
 
-      <Flex justifyContent='center' pt={4}>
-        <Divider borderColor='#47585B' w='60px' />
+        <Flex justifyContent='center' pt={4}>
+          <Divider borderColor='#47585B' w='60px' />
+        </Flex>
+
+        <Flex direction='column' p={6}>
+          <Text
+            fontSize='2xl'
+            color='#47585B'
+            textAlign='center'
+          >
+            Vamos nessa?
+          </Text>
+          <Text
+            fontSize='2xl'
+            color='#47585B'
+            textAlign='center'
+          >
+            Então escolha seu continente
+          </Text>
+        </Flex>
+
+        <ContinentsSlide continents={continents} />
       </Flex>
-
-      <Flex direction='column' p={6}>
-        <Text
-          fontSize='2xl'
-          color='#47585B'
-          textAlign='center'
-        >
-          Vamos nessa?
-        </Text>
-        <Text
-          fontSize='2xl'
-          color='#47585B'
-          textAlign='center'
-        >
-          Então escolha seu continente
-        </Text>
-      </Flex>
-
-      <ContinentsSlide continents={continents} />
     </Flex>
   )
 }
